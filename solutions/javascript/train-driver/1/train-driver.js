@@ -1,0 +1,70 @@
+// @ts-check
+//
+// The line above enables type checking for this file. Various IDEs interpret
+// the @ts-check directive. It will give you helpful autocompletion when
+// implementing this exercise.
+
+/**
+ * Return each wagon's id in form of an array.
+ *
+ * @param {...numbers} ids
+ * @returns {number[]} wagon ids
+ */
+export function getListOfWagons(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
+  
+ return Array.from(arguments);
+}
+
+/**
+ * Reorder the array of wagons by moving the first 2 wagons to the end of the array.
+ *
+ * @param {Iterable<number>} ids
+ * @returns {number[]} reordered list of wagons
+ */
+export function fixListOfWagons(ids) {
+
+  const arr = Array.from(ids);
+  
+const firstTwo = arr.splice(0, 2);
+  arr.push(...firstTwo);
+  return arr;
+}
+
+/**
+ * Fixes the array of wagons by inserting an array of wagons after the first element in eachWagonsID.
+ *
+ * @param {Iterable<number>} ids
+ * @param {Iterable<number>} missingWagons
+ * @returns {number[]} corrected list of wagons
+ */
+export function correctListOfWagons(ids, missingWagons) {
+  const arrIds = Array.from(ids);
+  const arrMissingWagon = Array.from(missingWagons);
+  
+  let fixedWagons = arrIds.splice(1, 0, ...arrMissingWagon);
+  return arrIds;
+}
+
+/**
+ * Extend route information by adding another object
+ *
+ * @param {Record<string, string>} information
+ * @param {Record<string, string>} additional
+ * @returns {Record<string, string>} extended route information
+ */
+export function extendRouteInformation(information, additional) {
+  const newIformation = {...information, ...additional};
+
+  return newIformation;
+}
+
+/**
+ * Separate arrival time from the route information object
+ *
+ * @param {Record<string, string>} information
+ * @returns {[string, Record<string, string>]} array with arrival time and object without arrival time
+ */
+export function separateTimeOfArrival(information) {
+  const { timeOfArrival, ...rest } = information;
+  return [timeOfArrival, rest];
+}
